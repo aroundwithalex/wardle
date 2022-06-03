@@ -1,0 +1,6 @@
+Wordle is a single player game.  A player has to guess a five letter hidden word.  You
+have six attempts, and you can track your progress as follows: -
+
+✔ -> Indicates that the letter at that position was guessed correctly.
+➕ -> Indicates that the letter exists in the hidden word, but at a different position.
+❌ -> Indicates that the letter does not exist in the word.
