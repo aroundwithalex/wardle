@@ -14,10 +14,10 @@ from src.instructions import print_instructions
 
 from src.wardle import Wardle
 
-from src.display import (create_display_string, print_display_string,
+from src.display import (create_display_string, 
+                         print_display_string,
                          print_no_more_attempts, 
-                         print_exact_match, 
-                         print_no_more_attempts)
+                         print_exact_match)
 
 def main():
     """
