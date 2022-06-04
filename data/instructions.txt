@@ -1,4 +1,4 @@
-Wordle is a single player game.  A player has to guess a five letter hidden word.  You
+Wardle is a single player game.  A player has to guess a five letter hidden word.  You
 have six attempts, and you can track your progress as follows: -
 
 ✔ -> Indicates that the letter at that position was guessed correctly.
