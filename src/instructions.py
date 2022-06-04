@@ -6,8 +6,8 @@ It provides an indication of what the different statuses mean and how many
 attempts a user has.
 
 Typical Usage:
-    from instructions import instruct
-    instruct()
+    >>> from instructions import instruct
+    >>> instruct()
 """
 
 from pathlib import Path
