@@ -7,6 +7,8 @@ Typical Usage:
     pytest -v
 """
 
+from collections import Counter
+
 import pytest
 
 from src.wardle import Wardle
@@ -115,7 +117,8 @@ def test_check_guess_all_true(wardle):
     guess_word = "snail"
 
     matches = wardle.check_guess(guess_word)
-    assert all(matches)
+    values_count = Counter(matches)["correct_position"]
+    assert values_count == len(guess_word)
 
 def test_check_guess_some_true(wardle):
     """
@@ -134,10 +137,11 @@ def test_check_guess_some_true(wardle):
         None
     """
 
-    guess_word = "spurs"
+    guess_word = "paris"
 
     matches = wardle.check_guess(guess_word)
-    assert not all(matches)
+    values_count = Counter(matches)["correct_letter"]
+    assert values_count == 2
 
 def test_check_guess_all_false(wardle):
     """
@@ -159,5 +163,5 @@ def test_check_guess_all_false(wardle):
     guess_word = "trout"
 
     matches = wardle.check_guess(guess_word)
-    print(matches)
-    assert all([not x for x in matches])
+    values_count = Counter(matches)["incorrect"]
+    assert values_count == len(guess_word)
