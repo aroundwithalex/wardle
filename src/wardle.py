@@ -7,8 +7,8 @@ input to ensure the given letter occurs in the word, and outputs the result to
 the user.
 
 Typical Usage:
-    from src.wardle import play_wardle
-    play_wardle()
+    >>> from src.wardle import play_wardle
+    >>> play_wardle()
 """
 
 class Wardle():
@@ -40,8 +40,7 @@ class Wardle():
         Raises:
             None
         """
-
-        self.attempts = 6
+        
         self.hidden_word = "snail"
     
     def is_exact_match(self, guess):
@@ -129,10 +128,10 @@ class Wardle():
 
         for index, letter in enumerate(guess):
             if self.letter_position_matches(index, letter):
-                matches_found.append(True)
+                matches_found.append("correct_position")
             elif self.letter_in_word(letter):
-                matches_found.append(True)
+                matches_found.append("correct_letter")
             else:
-                matches_found.append(False)
+                matches_found.append("incorrect")
         
         return matches_found
