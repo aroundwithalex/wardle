@@ -77,7 +77,6 @@ def test_read_instructions():
         None
     """
 
-    os.chdir('..')
     instructions = read_instructions()
     assert isinstance(instructions, str)
 
