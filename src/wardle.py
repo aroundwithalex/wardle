@@ -11,6 +11,11 @@ Typical Usage:
     >>> play_wardle()
 """
 
+from rich import print as rich_print
+
+from src.validators import (guess_is_five_characters,
+                            guess_is_string)
+
 class Wardle():
     """
     Sets parameters for Wardle, and launches game.
@@ -104,6 +109,32 @@ class Wardle():
         """
 
         return letter in self.hidden_word
+    
+    def validate_guess(self, guess):
+        """
+        Validates guess and outputs message if invalid
+
+        This method validates a guess and outputs a message if the guess
+        is invalid. It uses pre-built validators to check the guess to
+        ensure it is a string, and contains exactly 5 characters.
+
+        Args:
+            guess -> Guess to check
+        
+        Returns:
+            None
+        
+        Raises:
+            None
+        """
+
+        try:
+            guess_is_string(guess)
+            guess_is_five_characters(guess)
+            return True
+        except ValueError as invalid_guess:
+            rich_print(str(invalid_guess))
+            return False
     
     def check_guess(self, guess):
         """
