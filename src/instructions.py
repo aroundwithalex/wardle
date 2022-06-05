@@ -11,6 +11,8 @@ Typical Usage:
 """
 
 from pathlib import Path
+from rich.console import Console
+from rich.markdown import Markdown
 
 def generate_instructions_path():
     """
@@ -29,7 +31,7 @@ def generate_instructions_path():
         None
     """
 
-    make_instructions_path = f"{Path.cwd()}/data/instructions.txt"
+    make_instructions_path = f"{Path.cwd()}/data/instructions.md"
     return make_instructions_path
 
 def check_instructions():
@@ -74,8 +76,8 @@ def read_instructions():
 
     instructions_path = generate_instructions_path()
     with open(instructions_path, 'r', encoding='utf-8-sig') as instructions:
-        read_instruction_text = instructions.read()
-        return read_instruction_text
+        markdown = Markdown(instructions.read())
+        return markdown
 
 def print_instructions():
     """
@@ -95,4 +97,6 @@ def print_instructions():
     """
 
     instructions = read_instructions()
-    print(instructions)
+
+    console = Console()
+    console.print(instructions)
