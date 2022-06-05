@@ -97,6 +97,83 @@ def test_letter_in_word(wardle):
     matches = wardle.letter_in_word(guess_word[-1])
     assert matches is True
 
+def test_validate_guess_with_non_string(wardle, capfd):
+    """
+    Tests the validate_guess() method
+
+    This method tests the validate_guess() method to ensure
+    it prints the expected message if a non-string value is
+    passed.
+
+    Args:
+        wardle -> Wardle object created by pytest fixture
+        capfd -> Captures input and output
+    
+    Returns:
+        None
+    
+    Raises:
+        None
+    """
+
+    invalid_guess = 3.142
+
+    wardle.validate_guess(invalid_guess)
+    output = capfd.readouterr()
+
+    assert isinstance(output.out, str)
+
+def test_validate_guess_with_long_string(wardle, capfd):
+    """
+    Tests the validate_guess() method
+
+    This method tests the validate_guess() method to ensure
+    it prints the expected message if a long string is passed
+    to it.
+
+    Args:
+        wardle -> Wardle object created by pytest fixture
+        capfd -> Captures input and output
+    
+    Returns:
+        None
+    
+    Raises:
+        None
+    """
+
+    invalid_guess = "greaves"
+
+    wardle.validate_guess(invalid_guess)
+    output =  capfd.readouterr()
+
+    assert isinstance(output.out, str)
+
+def test_validate_guess_with_short_string(wardle, capfd):
+    """
+    Tests the validate_guess() method
+
+    This method tests the validate_guess() method to ensure it
+    prints the expected message if a short string is passed.
+
+    Args:
+        wardle -> Wardle object created by pytest fixture
+        capfd -> Captures input and output
+    
+    Returns:
+        None
+    
+    Raises:
+        None
+    """
+
+    invalid_guess = "fish"
+
+    wardle.validate_guess(invalid_guess)
+    output = capfd.readouterr()
+
+    assert isinstance(output.out, str)
+
 def test_check_guess_all_true(wardle):
     """
     Tests the check_guess() method returns expected list
