@@ -11,6 +11,29 @@ from src.display import create_display_string
 from src.display import print_display_string
 from src.display import print_exact_match
 from src.display import print_no_more_attempts
+from src.display import ask_for_user_guess
+
+def test_ask_for_user_guess(monkeypatch):
+    """
+    Tests ask_for_user_guess() method
+
+    This method tests the ask_for_user_guess() method.
+
+    Args:
+        capfd -> Captures standard output
+        monkeypatch -> Patches rich.Prompt.ask
+    
+    Returns:
+        None
+    
+    Raises:
+        None
+    """
+
+    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda word: "snail")
+    guess_word = ask_for_user_guess()
+
+    assert guess_word == "snail"
 
 def test_create_display_string():
     """
