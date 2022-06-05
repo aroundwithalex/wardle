@@ -30,7 +30,7 @@ def guess_is_string(guess):
     """
 
     if not isinstance(guess, str):
-        raise ValueError(f"{guess} should be a string")
+        raise ValueError(f"[red on black]{guess} should be a string[/]")
 
 def guess_is_five_characters(guess):
     """
@@ -50,4 +50,4 @@ def guess_is_five_characters(guess):
     """
 
     if len(guess) != 5:
-        raise ValueError(f"{guess} should be five characters")
+        raise ValueError(f"[red on black]{guess} should be five characters[/]")

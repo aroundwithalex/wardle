@@ -17,7 +17,8 @@ from src.wardle import Wardle
 from src.display import (create_display_string,
                          print_display_string,
                          print_no_more_attempts,
-                         print_exact_match)
+                         print_exact_match,
+                         ask_for_user_guess)
 
 def main():
     """
@@ -42,7 +43,7 @@ def main():
 
     attempts = 6
     while attempts >= 0:
-        guess_word = input("Enter your guess: ")
+        guess_word = ask_for_user_guess()
 
         is_valid = wardle.validate_guess(guess_word)
         if not is_valid:

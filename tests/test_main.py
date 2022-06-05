@@ -37,7 +37,7 @@ def test_main_with_non_string_guess(capfd, monkeypatch):
     output_messages = []
 
     for word in guesses:
-        monkeypatch.setattr("builtins.input", lambda guess: word)
+        monkeypatch.setattr("rich.prompt.Prompt.ask", lambda guess: word)
         main()
         output = capfd.readouterr()
         output_messages.append(output.out)
@@ -74,7 +74,7 @@ def test_main_with_long_guess(capfd, monkeypatch):
 
     output_messages = []
     for word in guesses:
-        monkeypatch.setattr("builtins.input", lambda guess: word)
+        monkeypatch.setattr("rich.prompt.Prompt.ask", lambda guess: word)
         main()
         output = capfd.readouterr()
         output_messages.append(output.out)
@@ -111,7 +111,7 @@ def test_main_with_short_guess(capfd, monkeypatch):
 
     output_messages = []
     for word in guesses:
-        monkeypatch.setattr("builtins.input", lambda guess: word)
+        monkeypatch.setattr("rich.prompt.Prompt.ask", lambda guess: word)
         main()
         output = capfd.readouterr()
         output_messages.append(output.out)
@@ -137,7 +137,7 @@ def test_main_with_correct_guess(capfd, monkeypatch):
         None
     """
 
-    monkeypatch.setattr("builtins.input", lambda word:"snail")
+    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda word:"snail")
     main()
     output = capfd.readouterr()
 
@@ -164,7 +164,7 @@ def test_main_with_eventual_correct_answer(capfd, monkeypatch):
     words = ["lemar", "paris", "snail"]
 
     for word in words:
-        monkeypatch.setattr("builtins.input", lambda guess: word)
+        monkeypatch.setattr("rich.prompt.Prompt.ask", lambda guess: word)
         main()
         output = capfd.readouterr()
     
@@ -198,7 +198,7 @@ def test_main_with_no_more_attempts(capfd, monkeypatch):
     ]
 
     for word in words:
-        monkeypatch.setattr("builtins.input", lambda guess: word)
+        monkeypatch.setattr("rich.prompt.Prompt.ask", lambda guess: word)
         main()
         output = capfd.readouterr()
     

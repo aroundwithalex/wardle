@@ -10,10 +10,33 @@ Typical Usage:
 """
 
 from rich import print as rich_print
+from rich.prompt import Prompt
+
+def ask_for_user_guess():
+    """
+    Asks the user for their guess
+
+    This method asks the user to input their guess. It returns the
+    guess for further use in the program.
+
+    Args:
+        None
+    
+    Returns:
+        user guess -> Word input by the user
+    
+    Raises:
+        None
+    """
+
+    question = "\n[cyan]Enter your guess [/]"
+    guess_word = Prompt.ask(question)
+
+    return guess_word
 
 def create_display_string(guess: str, results: list) -> str:
     """
-    Creates a display string for Rich
+    Creates a display string for Rich̀
 
     This method creates a display string, containing the appropriate
     syntax to print the results of the game to the console. It takes
